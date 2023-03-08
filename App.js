@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import OnboardingScreen from './screens/OnboardingScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import HomeScreen from './screens/HomeScreen';
@@ -9,6 +9,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DetailsProvider from './providers/DetailsProvider';
+import UserAvatar from 'react-native-user-avatar-component';
+import StackNavigator from './StackNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,30 +35,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <DetailsProvider>
-        <Stack.Navigator>
-          {isOnboardingCompleted ? (
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}/>
-          ) : (
-          <Stack.Screen 
-            name="Onboarding"
-            component={OnboardingScreen}/>
-          )}
-          {isOnboardingCompleted && (
-          <Stack.Screen
-            name="Onboarding"
-            component={OnboardingScreen}/>
-          )}
-          {!isOnboardingCompleted && (
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}/>
-          )}
-          <Stack.Screen
-            name="Profile"
-            component={ProfileScreen}/>
-        </Stack.Navigator>
+        <StackNavigator isOnboardingCompleted={isOnboardingCompleted}/>
       </DetailsProvider>
     </NavigationContainer>
   );

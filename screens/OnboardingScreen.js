@@ -15,7 +15,7 @@ export default function OnboardingScreen({ navigation }) {
         <View style={styles.container}>
             <View style={styles.header}>
                 <Image
-                    source={require('../images/logo.png')}
+                    source={require('../images/logo_1.png')}
                     style={styles.logo}/>
                 <Text style={styles.headerText}>Little Lemon</Text>
             </View>
@@ -74,10 +74,12 @@ export default function OnboardingScreen({ navigation }) {
     )
 }
 
+
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#888',
+        backgroundColor: '#495E57',
     },
     header: {
         flex: 0.15,
