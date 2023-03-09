@@ -1,15 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, Pressable, Button } from 'react-native';
 import OnboardingScreen from './screens/OnboardingScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import HomeScreen from './screens/HomeScreen';
-import SplashScreen from './screens/SplashScreen';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import DetailsProvider from './providers/DetailsProvider';
-import UserAvatar from 'react-native-user-avatar-component';
 import { useDetailsContext } from './providers/DetailsProvider';
 
 const Stack = createNativeStackNavigator();
@@ -59,7 +52,7 @@ HomeScreen.navigationOptions = ({ navigation }) => {
         },
         headerTitle: () =>  (
             <Image
-                source={require(`./images/Logo.png`)}
+                source={require(`./images/logo.png`)}
                 style={{ width: 185, height: 40, marginLeft: 60 }}
                 resizeMode='contain'/>),
         headerTitleStyle: { flex: 1, textAlign: 'center' },
@@ -83,7 +76,7 @@ OnboardingScreen.navigationOptions = ({ navigation }) => {
         headerLeft: () => (null),
         headerTitle: () =>  (
           <Image
-              source={require(`./images/Logo.png`)}
+              source={require(`./images/logo.png`)}
               style={{ width: 185, height: 40, marginLeft: 60 }}
               resizeMode='contain'/>),
         headerTitleStyle: { flex: 1, textAlign: 'center' },
@@ -94,7 +87,7 @@ ProfileScreen.navigationOptions = ({ navigation }) => {
   return {
       headerTitle: () =>  (
         <Image
-            source={require(`./images/Logo.png`)}
+            source={require(`./images/logo.png`)}
             style={{ width: 185, height: 40, marginLeft: 10 }}
             resizeMode='contain'/>),
       headerTitleStyle: { flex: 1, textAlign: 'center' },

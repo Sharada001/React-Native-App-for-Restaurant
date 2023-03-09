@@ -6,6 +6,29 @@ import { useState, useEffect, useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDetailsContext } from '../providers/DetailsProvider';
 import UserAvatar from 'react-native-user-avatar-component';
+import {
+    useFonts,
+    MarkaziText_400Regular,
+    MarkaziText_500Medium,
+    MarkaziText_600SemiBold,
+    MarkaziText_700Bold,
+  } from '@expo-google-fonts/markazi-text';
+import {
+    Karla_200ExtraLight,
+    Karla_300Light,
+    Karla_400Regular,
+    Karla_500Medium,
+    Karla_600SemiBold,
+    Karla_700Bold,
+    Karla_800ExtraBold,
+    Karla_200ExtraLight_Italic,
+    Karla_300Light_Italic,
+    Karla_400Regular_Italic,
+    Karla_500Medium_Italic,
+    Karla_600SemiBold_Italic,
+    Karla_700Bold_Italic,
+    Karla_800ExtraBold_Italic,
+} from '@expo-google-fonts/karla';
 
 export default function ProfileScreen({ navigation }) {
     const { details, setDetails, isOnboardingCompleted, setIsOnboardingCompleted, defaultDetails } = useDetailsContext();
@@ -65,16 +88,36 @@ export default function ProfileScreen({ navigation }) {
           aspect: [4, 3],
           quality: 1,
         });
-        console.log(result);
     
         if (!result.canceled) {
           setImageUri(result.assets[0].uri);
         }
       };
 
+      let [fontsLoaded] = useFonts({
+        MarkaziText_400Regular,
+        MarkaziText_500Medium,
+        MarkaziText_600SemiBold,
+        MarkaziText_700Bold,
+        Karla_200ExtraLight,
+        Karla_300Light,
+        Karla_400Regular,
+        Karla_500Medium,
+        Karla_600SemiBold,
+        Karla_700Bold,
+        Karla_800ExtraBold,
+        Karla_200ExtraLight_Italic,
+        Karla_300Light_Italic,
+        Karla_400Regular_Italic,
+        Karla_500Medium_Italic,
+        Karla_600SemiBold_Italic,
+        Karla_700Bold_Italic,
+        Karla_800ExtraBold_Italic,
+      });
+
     return(
         <SafeAreaView style={styles.container}>
-        { count<1 ? ( <ActivityIndicator/> ) : (
+        { (!fontsLoaded && count<1) ? ( <ActivityIndicator/> ) : (
         <ScrollView style={styles.container}>
             <Text style={styles.headerText}>Personal information</Text>
             <Text style={styles.descriptionText}>Avatar</Text>
@@ -82,13 +125,13 @@ export default function ProfileScreen({ navigation }) {
                 <UserAvatar size={120} name={`${firstName} ${lastName}`} src={imageUri}/>
                 <Pressable
                     onPress={pickImage}
-                    style={styles.button}>
-                    <Text>Change</Text>
+                    style={styles.buttonGreen}>
+                    <Text style={styles.buttonGreenText}>Change</Text>
                 </Pressable>
                 <Pressable
                     onPress={() => {setImageUri('');}}
-                    style={styles.button}>
-                    <Text>Remove</Text>
+                    style={styles.buttonWhite}>
+                    <Text style={styles.buttonWhiteText}>Remove</Text>
                 </Pressable>
             </View>
             <Text style={styles.descriptionText}>First Name</Text>
@@ -124,36 +167,36 @@ export default function ProfileScreen({ navigation }) {
             
 
             <Text style={styles.headerText}>Email notifications</Text>
-            <View style={styles.section}>
+            <View style={styles.boxSection}>
                 <Checkbox
                     style={styles.checkbox}
                     value={orderStatuses}
                     onValueChange={setOrderStatuses}
-                    color={orderStatuses ? '#4630EB' : undefined}/>
+                    color={orderStatuses ? '#495E57' : undefined}/>
                 <Text style={styles.descriptionText}>Order statuses</Text>
             </View>
-            <View style={styles.section}>
+            <View style={styles.boxSection}>
                 <Checkbox
                     style={styles.checkbox}
                     value={passwordChanges}
                     onValueChange={setPasswordChanges}
-                    color={passwordChanges ? '#4630EB' : undefined}/>
+                    color={passwordChanges ? '#495E57' : undefined}/>
                 <Text style={styles.descriptionText}>Password changes</Text>
             </View>
-            <View style={styles.section}>
+            <View style={styles.boxSection}>
                 <Checkbox
                     style={styles.checkbox}
                     value={specialOffers}
                     onValueChange={setSpecialOffers}
-                    color={specialOffers ? '#4630EB' : undefined}/>
+                    color={specialOffers ? '#495E57' : undefined}/>
                 <Text style={styles.descriptionText}>Special offers</Text>
             </View>
-            <View style={styles.section}>
+            <View style={styles.boxSection}>
                 <Checkbox
                     style={styles.checkbox}
                     value={newsletter}
                     onValueChange={setNewsletter}
-                    color={newsletter ? '#4630EB' : undefined}/>
+                    color={newsletter ? '#495E57' : undefined}/>
                 <Text style={styles.descriptionText}>Newsletter</Text>
             </View>
             <Pressable
@@ -171,16 +214,16 @@ export default function ProfileScreen({ navigation }) {
                     navigation.navigate('Onboarding');
                 }}
                 style={styles.logoutButton}>
-                    <Text style={styles.descriptionText}>Log out</Text>
+                    <Text style={styles.logoutButtonText}>Log out</Text>
             </Pressable>
-            <View style={styles.section}>
+            <View style={styles.buttonSection}>
                 <Pressable 
                     onPress={() => {
                         updateDetailsOnMemory();
                         navigation.navigate('Home');
                     }}
-                    style={styles.button}>
-                        <Text style={styles.descriptionText}>Discard changes</Text>
+                    style={styles.buttonWhite}>
+                        <Text style={styles.buttonWhiteText}>Discard changes</Text>
                 </Pressable>
                 <Pressable
                     onPress={() => {
@@ -209,8 +252,8 @@ export default function ProfileScreen({ navigation }) {
                         updateDetails(newDetails);
                         navigation.navigate('Home');
                     }}
-                    style={styles.button}>
-                        <Text style={styles.descriptionText}>Save changes</Text>
+                    style={styles.buttonGreen}>
+                        <Text style={styles.buttonGreenText}>Save changes</Text>
                 </Pressable>
             </View>
         </ScrollView>
@@ -222,12 +265,14 @@ export default function ProfileScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#EDEFEE',
     },
     headerText: {
-        fontSize: 30,
-        fontFamily: 'serif',
+        fontSize: 25,
+        fontFamily: 'Karla_700Bold',
         lineHeight: 40,
+        paddingLeft: 10,
+        paddingTop: 10,
     },
     imageBox: {
         flex: 1,
@@ -235,44 +280,77 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row',
     },
-    button: {
-        backgroundColor: '#bbb',
+    buttonGreen: {
+        backgroundColor: '#495E57',
         borderRadius: 10,
         paddingHorizontal: 10,
-        paddingVertical: 5,
-        marginHorizontal: 5,
-        marginVertical: 20,
+        paddingVertical: 10,
+        marginLeft: 20,
+        marginBottom: 25,
     },
-    buttonText: {
-        fontSize: 30
+    buttonGreenText: {
+        fontSize: 16,
+        color: '#fff',
+        fontFamily: 'Karla_700Bold',
+    },
+    buttonWhite: {
+        backgroundColor: '#EDEFEE',
+        borderRadius: 10,
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        marginLeft: 20,
+        marginBottom: 25,
+        borderWidth: 1,
+        borderColor: '#495E57'
+    },
+    buttonWhiteText: {
+        fontSize: 16,
+        fontFamily: 'Karla_700Bold',
+        color: '#666'
     },
     descriptionText: {
-        fontSize: 20,
-        marginHorizontal:5,
+        fontSize: 18,
+        fontFamily: 'Karla_500Medium',
+        paddingLeft: 15,
+        paddingTop: 17,
+        paddingBottom: 3,
+        color: '#666'
     },
     inputBox: {
-        backgroundColor: '#aaa',
+        backgroundColor: '#EDEFEE',
         height: 40,
-        width: 250,
+        width: 300,
         borderRadius: 10,
         padding: 10,
-        borderWidth: 2,
+        borderWidth: 1,
+        marginLeft: 20,
     },
-    section: {
+    boxSection: {
         flexDirection: 'row',
     },
+    buttonSection: {
+        flexDirection: 'row',
+        marginLeft: 10,
+    },
     checkbox: {
-        backgroundColor: '#aaa',
-        marginHorizontal: 10,
-        marginVertical: 5,
+        backgroundColor: '#EDEFEE',
+        marginTop: 20,
+        marginLeft: 20,
     },
     logoutButton: {
-        backgroundColor: '#dddd00',
+        backgroundColor: '#F4CE14',
         alignItems: 'center',
         borderRadius: 10,
         paddingHorizontal: 10,
-        paddingVertical: 5,
-        marginHorizontal: 5,
+        paddingVertical: 7,
+        marginHorizontal: 10,
         marginVertical: 20,
-    }
+        borderColor: '#EE9972',
+        borderWidth: 1,
+    },
+    logoutButtonText: {
+        fontFamily: 'Karla_700Bold',
+        fontSize: 20,
+        color: 'black',
+    },
 })

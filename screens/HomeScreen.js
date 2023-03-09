@@ -1,10 +1,7 @@
 import { View, Text, StyleSheet, TextInput, Pressable, Image, ScrollView, Alert, ActivityIndicator, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
-import { MaskedTextInput } from "react-native-mask-text";
 import { Searchbar } from 'react-native-paper';
 import debounce from 'lodash.debounce';
-import Checkbox from 'expo-checkbox';
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDetailsContext } from '../providers/DetailsProvider';
 import UserAvatar from 'react-native-user-avatar-component';
 import { MaterialIcons } from '@expo/vector-icons';
