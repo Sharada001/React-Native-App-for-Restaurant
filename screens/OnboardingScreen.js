@@ -1,8 +1,33 @@
-import {View, Text, StyleSheet, TextInput, Pressable, Image} from 'react-native';
+import {View, Text, StyleSheet, TextInput, Pressable, Image, ActivityIndicator, SafeAreaView, KeyboardAvoidingView, ScrollView, Platform} from 'react-native';
 import { useState, useEffect } from 'react';
 import {validateEmail, isAlphabetic} from '../utils/index';
 import { useDetailsContext } from '../providers/DetailsProvider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useHeaderHeight } from '@react-navigation/elements'
+import {
+    useFonts,
+    MarkaziText_400Regular,
+    MarkaziText_500Medium,
+    MarkaziText_600SemiBold,
+    MarkaziText_700Bold,
+  } from '@expo-google-fonts/markazi-text';
+import {
+    Karla_200ExtraLight,
+    Karla_300Light,
+    Karla_400Regular,
+    Karla_500Medium,
+    Karla_600SemiBold,
+    Karla_700Bold,
+    Karla_800ExtraBold,
+    Karla_200ExtraLight_Italic,
+    Karla_300Light_Italic,
+    Karla_400Regular_Italic,
+    Karla_500Medium_Italic,
+    Karla_600SemiBold_Italic,
+    Karla_700Bold_Italic,
+    Karla_800ExtraBold_Italic,
+  } from '@expo-google-fonts/karla';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function OnboardingScreen({ navigation }) {
     const { details, setDetails, isOnboardingCompleted, setIsOnboardingCompleted } = useDetailsContext();
@@ -11,22 +36,58 @@ export default function OnboardingScreen({ navigation }) {
     const [isDisabled, setIsDisabled] = useState(false);
     useEffect(()=>{setIsDisabled(!(validateEmail(email) && isAlphabetic(userName)));},
         [userName, email]);
+
+        let [fontsLoaded] = useFonts({
+            MarkaziText_400Regular,
+            MarkaziText_500Medium,
+            MarkaziText_600SemiBold,
+            MarkaziText_700Bold,
+            Karla_200ExtraLight,
+            Karla_300Light,
+            Karla_400Regular,
+            Karla_500Medium,
+            Karla_600SemiBold,
+            Karla_700Bold,
+            Karla_800ExtraBold,
+            Karla_200ExtraLight_Italic,
+            Karla_300Light_Italic,
+            Karla_400Regular_Italic,
+            Karla_500Medium_Italic,
+            Karla_600SemiBold_Italic,
+            Karla_700Bold_Italic,
+            Karla_800ExtraBold_Italic,
+          });
+    
+    const height = useHeaderHeight()
+
     return(
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Image
-                    source={require('../images/logo_1.png')}
-                    style={styles.logo}/>
-                <Text style={styles.headerText}>Little Lemon</Text>
+        <SafeAreaView style={styles.container}>
+        {!fontsLoaded ? (
+            <ActivityIndicator/>
+        ) : (
+        <KeyboardAvoidingView 
+            style={styles.container}
+            behavior={Platform.OS==='ios' ? 'padding' : 'height'}
+            keyboardVerticalOffset={height+30}>
+        <ScrollView keyboardDismissMode="on-drag">
+            <View style={styles.heroContainer}>
+                <Text style={styles.titleText}>Little Lemon</Text>
+                <Text style={styles.subTitleText}>Chicago</Text>
+                <View style={styles.heroSubContainer}>
+                    <Text style={styles.descriptionText}>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</Text>
+                    <Image
+                        source={require('../images/HeroImage.png')}
+                        style={styles.heroImage}/>
+                </View>
             </View>
             <View style={styles.content}>
                 <Text style={styles.subHeaderText}>Let us get to know you</Text>
-                <Text style={styles.contentText}>First Name</Text>
+                <Text style={styles.contentText}>First Name *</Text>
                 <TextInput
                     style={styles.textInput}
                     value={userName}
                     onChangeText={setUserName}/>
-                <Text style={styles.contentText}>Email</Text>
+                <Text style={styles.contentText}>Email *</Text>
                 <TextInput
                     style={styles.textInput}
                     value={email}
@@ -37,8 +98,8 @@ export default function OnboardingScreen({ navigation }) {
                 <Pressable 
                     style={({ pressed, disabled }) => [
                         styles.button,
-                        !isDisabled && { backgroundColor: '#00bb00' },
-                        isDisabled && { backgroundColor: '#888888' },
+                        !isDisabled && { backgroundColor: '#F4CE14' },
+                        isDisabled && { backgroundColor: '#495E57' },
                       ]}
                     disabled={isDisabled}
                     onPress={()=>{
@@ -70,7 +131,10 @@ export default function OnboardingScreen({ navigation }) {
                     <Text style={styles.buttonText}>Next</Text>
                 </Pressable>
             </View>
-        </View>
+        </ScrollView>
+        </KeyboardAvoidingView>
+        )}
+        </SafeAreaView>
     )
 }
 
@@ -80,6 +144,41 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#495E57',
+    },
+    heroContainer: {
+        // flex: 1,
+        backgroundColor: '#495E57',
+    },
+      heroSubContainer: {
+        flexDirection: 'row',
+        marginBottom: 10,
+    },
+    heroImage: {
+        height: 150,
+        width: 150,
+        resizeMode: 'cover',
+        borderRadius: 16,
+    },
+    titleText: {
+        fontFamily: 'MarkaziText_500Medium',
+        fontSize: 64,
+        color: '#F4CE14',
+        paddingHorizontal: 10,
+        marginTop: 10,
+    },
+    subTitleText: {
+        fontFamily: 'MarkaziText_400Regular',
+        fontSize: 40,
+        color: '#EDEFEE',
+        paddingHorizontal: 10,
+    },
+    descriptionText: {
+        fontFamily: 'Karla_500Medium',
+        fontSize: 17,
+        paddingVertical: 20,
+        paddingLeft: 10,
+        color: '#EDEFEE',
+        width: 200,
     },
     header: {
         flex: 0.15,
@@ -91,15 +190,15 @@ const styles = StyleSheet.create({
     content: {
         flex: 0.7,
         alignItems: 'center',
-        backgroundColor: '#bbb',
+        backgroundColor: '#EDEFEE',
     },
     bottom: {
         flex: 0.15,
         alignItems: 'flex-end',
-        backgroundColor: '#dcdcdc',
+        backgroundColor: '#EDEFEE',
     },
     button: {
-        backgroundColor: '#bbb',
+        backgroundColor: '#495E57',
         borderRadius: 10,
         paddingHorizontal: 30,
         paddingVertical: 3,
@@ -112,22 +211,27 @@ const styles = StyleSheet.create({
         lineHeight: 40,
     },
     contentText: {
+        fontFamily: 'Karla_500Medium',
+        fontSize: 15,
         fontSize: 25,
-        marginTop: 40,
-        marginBottom: 20,
+        marginTop: 20,
+        marginBottom: 10,
     },
     subHeaderText: {
+        fontFamily: 'Karla_500Medium',
+        fontSize: 20,
         fontSize: 25,
-        marginTop: 40,
+        marginTop: 15,
     },
     buttonText: {
-        fontSize: 30
+        fontSize: 30,
+        color: 'black',
     },
     textInput: {
-        backgroundColor: '#fff',
+        backgroundColor: '#EDEFEE',
         height: 40,
-        width: 250,
-        borderRadius: 10,
+        width: 280,
+        borderRadius: 8,
         padding: 10,
         borderWidth: 2,
     },

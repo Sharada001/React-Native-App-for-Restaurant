@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet, TextInput, Pressable, Image, ScrollView, Alert, ActivityIndicator, SafeAreaView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import SplashScreen from '../screens/SplashScreen';
 
 const DetailsContext = React.createContext();
 
