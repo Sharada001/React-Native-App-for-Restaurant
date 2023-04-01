@@ -19,8 +19,8 @@ During the process of development following features were added to provide a sea
 Brand Style Guide provided by the restaurant was used in designing and styling, with the purpose of building up brand recognition and trust among App users.
 
 <p float="left" align="center">
-<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/1.jpg"  width="30%">
-<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/2.jpg"  width="30%">
+<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/1.jpg"  width="20%">
+<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/2.jpg"  width="20%">
 </p>
 
 <p float="left" align="center">
