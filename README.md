@@ -18,23 +18,26 @@ During the process of development following features were added to provide a sea
 
 Brand Style Guide provided by the restaurant was used in designing and styling, with the purpose of building up brand recognition and trust among App users.
 
-<h2 align="center">Login Page</h2>
+<h2 align="center">Login Screen</h2>
 <p float="left" align="center">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/1.jpg"  width="25%">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/2.jpg"  width="25%">
 </p>
 
+<h2 align="center">Home Screen</h2>
 <p float="left" align="center">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/3.jpg"  width="25%">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/4.jpg"  width="25%">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/5.jpg"  width="25%">
 </p>
  
+<h2 align="center">Profile Screen</h2>
 <p float="left" align="center">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/6.jpg"  width="25%">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/7.jpg"  width="25%">
 </p>
- 
+
+<h2 align="center">Wireframe and Prototype</h2>
 <p float="left" align="center">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Wireframe.jpg"  width="30%">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Prototype.png"  width="18%">
