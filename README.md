@@ -35,7 +35,10 @@ Brand Style Guide provided by the restaurant was used in designing and styling, 
 </p>
  
 <p float="left" align="center">
-<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Wireframe.jpg"  width="40%">
-<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Prototype.png"  width="10%">
-<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Prototype%20with%20design%20styles.jpg"  width="40%">
+<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Wireframe.jpg"  width="30%">
+<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Prototype.png"  width="20%">
+</p>
+
+<p float="left" align="center">
+<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Prototype%20with%20design%20styles.jpg"  width="50%">
 </p>
