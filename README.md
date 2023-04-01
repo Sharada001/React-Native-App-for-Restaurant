@@ -20,7 +20,6 @@ Brand Style Guide provided by the restaurant was used in designing and styling, 
 
 <p float="left" align="center">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/1.jpg"  width="25%">
- <p>   </p>
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/2.jpg"  width="25%">
 </p>
 
