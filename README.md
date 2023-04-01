@@ -27,9 +27,15 @@ Brand Style Guide provided by the restaurant was used in designing and styling, 
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/3.jpg"  width="25%">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/4.jpg"  width="25%">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/5.jpg"  width="25%">
- </p>
+</p>
  
 <p float="left" align="center">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/6.jpg"  width="25%">
 <img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/041b88bf33a1d6bc797ac7e81880360a6e03d216/Screenshots/7.jpg"  width="25%">
- </p>
+</p>
+ 
+<p float="left" align="center">
+<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Wireframe.jpg"  width="25%">
+<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Prototype.png"  width="25%">
+<img src="https://github.com/Sharada001/React-Native-App-for-Restaurant/blob/95ac94f2148276018f0f971dea0c2341223e794e/Prototype%20with%20design%20styles.jpg"  width="25%">
+</p>
